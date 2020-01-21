@@ -11,12 +11,12 @@ const Email = () => {
   const handleEmail = () => {
     const to = ['anthonyschafrik@gmail.com'];
 
-    // email(to, {
-    //   subject: 'Email test',
-    //   body: `Today is ${getDate()}
-    //    ${emailBody}
-    //   `
-    // }).catch(console.error);
+    email(to, {
+      subject: 'Email test',
+      body: `Today is ${getDate()}
+       ${emailBody}
+      `
+    }).catch(console.error);
   };
 
   return (
