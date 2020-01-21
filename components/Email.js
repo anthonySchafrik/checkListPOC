@@ -12,7 +12,7 @@ const Email = () => {
     const to = ['anthonyschafrik@gmail.com'];
 
     email(to, {
-      subject: 'Email test',
+      subject: 'Daily Check List',
       body: `Today is ${getDate()}
        ${emailBody}
       `
