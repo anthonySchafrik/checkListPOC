@@ -1,23 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
+
+import Colors from './const/Colors';
+import checkList from './CheckList';
 
 import ListItem from './components/ListItem';
-
-const checkList = [
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic',
-  'but also the leap into electronic'
-];
+import Email from './components/Email';
 
 export default function App() {
   const buildChickList = () =>
@@ -26,6 +14,7 @@ export default function App() {
   return (
     <ScrollView>
       <View style={styles.container}>{buildChickList()}</View>
+      <Email />
     </ScrollView>
   );
 }
@@ -33,7 +22,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#848484',
+    backgroundColor: Colors.backGround,
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 40
