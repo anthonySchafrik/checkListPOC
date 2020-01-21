@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableNativeFeedback } from 'react-native';
 
+import Colors from '../const/Colors';
+
 ListItem = ({ text }) => {
   const [isCheck, handleIsCheck] = useState(false);
 
@@ -12,7 +14,7 @@ ListItem = ({ text }) => {
         <View
           style={{
             ...styles.checkBox,
-            backgroundColor: isCheck ? 'black' : null
+            backgroundColor: isCheck ? Colors.primary : null
           }}
         />
       </TouchableNativeFeedback>
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   checkBox: {
-    borderColor: 'black',
+    borderColor: Colors.primary,
     borderWidth: 1,
     height: 35,
     width: 35
