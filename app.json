@@ -25,6 +25,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Poc",
+    "githubUrl": "https://github.com/anthonySchafrik/checkListPOC"
   }
 }
