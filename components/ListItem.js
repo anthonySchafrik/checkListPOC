@@ -44,7 +44,7 @@ ListItem = ({ text, addNote, notes, key }) => {
 
       <View style={styles.textInputContainer}>
         <TextInput
-          style={styles.textInput}
+          style={styles.styledInput}
           placeholder="Enter notes"
           placeholderTextColor="black"
           value={note}
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   textInputContainer: {
     width: '100%'
   },
-  textInput: {
+  styledInput: {
     borderColor: Colors.primary,
     borderBottomWidth: 1,
     marginVertical: 10,
