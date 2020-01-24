@@ -5,7 +5,9 @@ import {
   ScrollView,
   KeyboardAvoidingView
 } from 'react-native';
+import { Provider } from 'react-redux';
 
+import store from './store';
 import Colors from './const/Colors';
 import checkList from './CheckList';
 
@@ -17,12 +19,14 @@ export default function App() {
     checkList.map((text, i) => <ListItem text={text} key={i} />);
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.screen}>
-      <ScrollView>
-        <View style={styles.container}>{buildChickList()}</View>
-        <Email />
-      </ScrollView>
-    </KeyboardAvoidingView>
+    <Provider store={store}>
+      <KeyboardAvoidingView behavior="padding" style={styles.screen}>
+        <ScrollView>
+          <View style={styles.container}>{buildChickList()}</View>
+          <Email />
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </Provider>
   );
 }
 

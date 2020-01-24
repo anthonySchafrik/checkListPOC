@@ -6,16 +6,26 @@ import {
   TouchableNativeFeedback,
   TextInput
 } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { addNote } from '../actions/notes';
 import Colors from '../const/Colors';
 
-ListItem = ({ text }) => {
+ListItem = ({ text, addNote, notes, key }) => {
   const [isCheck, handleIsCheck] = useState(false);
   const [note, handleNote] = useState('');
 
   const setIsCheck = () => handleIsCheck(!isCheck);
 
   const setNote = text => handleNote(text);
+
+  const SetNoteAction = () => () => {
+    if (note !== '') {
+      addNote({ text, note });
+    }
+    return;
+  };
 
   return (
     <View style={styles.container}>
@@ -32,14 +42,15 @@ ListItem = ({ text }) => {
         <Text>{text}</Text>
       </View>
 
-      <View style={{ width: '100%' }}>
+      <View style={styles.textInputContainer}>
         <TextInput
           style={styles.textInput}
           placeholder="Enter notes"
+          placeholderTextColor="black"
           value={note}
           onChangeText={text => setNote(text)}
           multiline={true}
-          onEndEditing={() => console.log('worked?')}
+          onEndEditing={SetNoteAction()}
         />
       </View>
     </View>
@@ -63,6 +74,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
+  textInputContainer: {
+    width: '100%'
+  },
   textInput: {
     borderColor: Colors.primary,
     borderBottomWidth: 1,
@@ -71,4 +85,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ListItem;
+const mapStateToProps = state => {
+  const { notes } = state.notesObject;
+  return { notes };
+};
+
+const mapDispatchToProp = dispatch => {
+  return bindActionCreators({ addNote }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProp)(ListItem);
